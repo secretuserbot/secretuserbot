@@ -138,6 +138,9 @@ OTOMATIK_KATILMA = sb(os.environ.get("OTOMATIK_KATILMA", "True"))
 # Özel Pattern'ler
 PATTERNS = os.environ.get("PATTERNS", ".;!,")
 WHITELIST = get('https://gitlab.com/Quiec/asen/-/raw/master/whitelist.json').json()
+BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
+if not BLACKLIST_CHAT:
+    BLACKLIST_CHAT = [-1001357863496]
 
 # CloudMail.ru ve MEGA.nz ayarlama
 if not os.path.exists('bin'):
