@@ -95,8 +95,6 @@ def extractCommands(file):
                         else:
                             CmdHelp.set_file_info(Isim, Deger)
             for Komut in Komutlar:
-                # if re.search('\[(\w*)\]', Komut):
-                    # əmr = re.sub('(?<=\[.)[A-Za-z0-9_]*\]', '', Komut).replace('[', '')
                 CmdHelp.add_command(Komut, None, '🆘Bu plugin başqa yerdən yüklənib. Təsvir müəyyən edilməyib.')
             CmdHelp.add()
 
