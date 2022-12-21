@@ -29,7 +29,7 @@ class CmdHelp:
         
     def add_command(self, command : str, params = None, usage: str = '', example = None):
         """
-        Komut ekler.
+        Əmr əlavə edir.
         """
         
         self.COMMANDS[command] = {'command': command, 'params': params, 'usage': usage, 'example': example}
@@ -45,7 +45,7 @@ class CmdHelp:
 
     def get_result(self):
         """
-        Sonuç getirir.
+        Nəticə gətirir.
         """
 
         result = f"**➡️Fayl adı:** `{self.FILE}`\n"
