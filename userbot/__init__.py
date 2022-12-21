@@ -31,12 +31,10 @@ else:
 LOGS = getLogger(__name__)
 
 if version_info[0] < 3 or version_info[1] < 6:
-    LOGS.info("En az python 3.6 sürümüne sahip olmanız gerekir."
-              "Birden fazla özellik buna bağlıdır. Bot kapatılıyor.")
+    LOGS.info("Ən azı python 3.6 versiyasına sahib olmalısınız."
+              "Bir çox xüsusiyyət ondan asılıdır. Bot bağlanır.")
     quit(1)
 
-# Yapılandırmanın önceden kullanılan değişkeni kullanarak düzenlenip düzenlenmediğini kontrol edin.
-# Temel olarak, yapılandırma dosyası için kontrol.
 CONFIG_CHECK = os.environ.get(
     "___________Xais_______Bu_____Setiri_____Silin__________", None)
 
@@ -90,7 +88,7 @@ ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 
 CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
 
-BIO_PREFIX = os.environ.get("BIO_PREFIX", "@AsenaUserBot | ")
+BIO_PREFIX = os.environ.get("BIO_PREFIX", "@TheSecretUserBot | ")
 DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
 DB_URI = os.environ.get("DATABASE_URL", "sqlite:///secret.db")
 
@@ -131,7 +129,7 @@ else:
 if os.path.exists("learning-data-root.check"):
     os.remove("learning-data-root.check")
 else:
-    LOGS.info("Braincheck dosyası yok, getiriliyor...")
+    LOGS.info("Braincheck faylı yoxdur, yüklənir...")
 
 URL = 'https://raw.githubusercontent.com/quiec/databasescape/master/learning-data-root.check'
 with open('learning-data-root.check', 'wb') as load:
