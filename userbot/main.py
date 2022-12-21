@@ -1,12 +1,3 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
-# you may not use this file except in compliance with the License.
-#
-
-# Asena UserBot - Yusuf Usta
-
-""" UserBot başlangıç noktası """
 import importlib
 from importlib import import_module
 from sqlite3 import connect
@@ -67,7 +58,6 @@ def extractCommands(file):
         dosyaAdi = file.replace('.py', '')
         CmdHelp = userbot.cmdhelp.CmdHelp(dosyaAdi, False)
 
-        # Komutları Alıyoruz #
         for Command in Pattern:
             Command = Command[1]
             if Command == '' or len(Command) <= 1:
@@ -89,7 +79,6 @@ def extractCommands(file):
                             KomutStr = Command
                         Komutlar.append(KomutStr)
 
-            # SecretPY
             Secretpy = re.search('\"\"\"SECRETPY(.*)\"\"\"', FileRead, re.DOTALL)
             if not Secretpy == None:
                 Secretpy = Secretpy.group(0)
@@ -107,7 +96,7 @@ def extractCommands(file):
                             CmdHelp.set_file_info(Isim, Deger)
             for Komut in Komutlar:
                 # if re.search('\[(\w*)\]', Komut):
-                    # Komut = re.sub('(?<=\[.)[A-Za-z0-9_]*\]', '', Komut).replace('[', '')
+                    # əmr = re.sub('(?<=\[.)[A-Za-z0-9_]*\]', '', Komut).replace('[', '')
                 CmdHelp.add_command(Komut, None, '🆘Bu plugin başqa yerdən yüklənib. Təsvir müəyyən edilməyib.')
             CmdHelp.add()
 
@@ -118,16 +107,13 @@ try:
     if idim in asenabl:
         bot.disconnect()
 
-    # ChromeDriver'ı Ayarlayalım #
     try:
         chromedriver_autoinstaller.install()
     except:
         pass
     
-    # Galeri için değerler
     GALERI = {}
 
-    # PLUGIN MESAJLARI AYARLIYORUZ
     PLUGIN_MESAJLAR = {}
     ORJ_PLUGIN_MESAJLAR = {"alive": "`👑Secret Userbot İşləyir...`", "afk": f"`{str(choice(AFKSTR))}`", "kickme": "`👋Özünüzə yaxşı baxın mən çıxdım`", "pm": UNAPPROVED_MSG, "ban": "❌ {mention}`, Qadağan edildi!`", "mute": "🔇 {mention}`, Səssizə alındı!`", "approve": "🔓 {mention}`, Mənə mesaj göndərə bilərsən!`", "disapprove": "🔒 {mention}`, Daha mənə mesaj göndərə bilməzsən!`", "block": "🔒{mention}`, Bloklandın!`"}
 
@@ -145,7 +131,7 @@ try:
             else:
                 PLUGIN_MESAJLAR[mesaj] = dmsj
     if not PLUGIN_CHANNEL_ID == None:
-        LOGS.info("♻️Pluginlər yüklənir...")
+        LOGS.info("Pluginlər yüklənir...")
         try:
             KanalId = bot.get_entity(PLUGIN_CHANNEL_ID)
         except:
@@ -159,7 +145,7 @@ try:
                 if not os.path.exists("./userbot/modules/" + plugin.file.name):
                     dosya = bot.download_media(plugin, "./userbot/modules/")
                 else:
-                    LOGS.info("🆘Bu Plugin Artıq Quraşdırılıb " + plugin.file.name)
+                    LOGS.info("Bu Plugin Artıq Quraşdırılıb " + plugin.file.name)
                     extractCommands('./userbot/modules/' + plugin.file.name)
                     dosya = plugin.file.name
                     continue 
@@ -170,7 +156,7 @@ try:
 
                     spec.loader.exec_module(mod)
                 except Exception as e:
-                    LOGS.info(f"`🆘Yükləmə uğursuz oldu! plugində Xəta aşkar edildi.\n\n❌Xəta: {e}`")
+                    LOGS.info(f"`Yükləmə uğursuz oldu! plugində Xəta aşkar edildi.\n\n❌Xəta: {e}`")
 
                     try:
                         plugin.delete()
@@ -205,9 +191,9 @@ async def FotoDegistir (foto):
 for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
-LOGS.info("👑Secret Userbot İşləyir! "
+LOGS.info("Secret Userbot İşləyir! "
           "Köməyə ehtiyacınız varsa, t.me/TheSecretSupport dəstək qrupumuza gəlin")
-LOGS.info(f"👑Secret UserBot Versiyası: {SECRET_VERSION}")
+LOGS.info(f"Secret UserBot Versiyası: {SECRET_VERSION}")
 
 """
 if len(argv) not in (1, 3, 4):
