@@ -1,13 +1,3 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
-# you may not use this file except in compliance with the License.
-#
-
-# Thanks github.com/spechide for creating inline bot support.
-# Asena UserBot - Yusuf Usta
-""" UserBot hazırlanışı. """
-
 import os
 from re import compile
 from sys import version_info
@@ -52,46 +42,37 @@ CONFIG_CHECK = os.environ.get(
 
 if CONFIG_CHECK:
     LOGS.info(
-        "Lütfen ilk hashtag'de belirtilen satırı config.env dosyasından kaldırın"
+        "Zəhmət olmasa, config.env faylından birinci teqdə göstərilən xətti çıxarın."
     )
     quit(1)
 
-# Bot'un dili
 LANGUAGE = os.environ.get("LANGUAGE", "DEFAULT").upper()
 
-if not LANGUAGE in ["EN", "TR", "AZ", "UZ", "DEFAULT"]:
-    LOGS.info("Bilinmeyen bir dil yazdınız. Bundan dolayı DEFAULT kullanılıyor.")
+if not LANGUAGE in ["AZ", "DEFAULT"]:
+    LOGS.info("Siz naməlum bir dil yazmısınız. Buna görə DEFAULT istifadə olunur.")
     LANGUAGE = "DEFAULT"
     
-# SECRET Verisyasi
-SECRET_VERSION = "v1.0"
+SECRET_VERSION = "1.0"
 
-# Telegram API KEY ve HASH
 API_KEY = os.environ.get("API_KEY", "18482353")
 API_HASH = os.environ.get("API_HASH", "9f7840b7015b359a49e142ce42decd71")
 
 SILINEN_PLUGIN = {}
-# UserBot Session String
 STRING_SESSION = os.environ.get("STRING_SESSION", None)
 
-# Kanal / Grup ID yapılandırmasını günlüğe kaydetme.
 BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", "0"))
 
-# UserBot günlükleme özelliği.
 BOTLOG = sb(os.environ.get("BOTLOG", "False"))
 LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
 
-# Hey! Bu bir bot. Endişelenme ;)
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
 
-# Ayrıntılı konsol günlügü
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 
-# AUTO PP
 AUTO_PP = os.environ.get("AUTO_PP", None)
 TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY",
                                          "./downloads")
-# Warn modül
+
 WARN_LIMIT = int(os.environ.get("WARN_LIMIT", 3))
 WARN_MODE = os.environ.get("WARN_MODE", "gmute")
 
@@ -99,50 +80,33 @@ if not WARN_MODE in ["gmute", "gban"]:
     WARN_MODE = "gmute"
 
 PLUGINID = os.environ.get("PLUGIN_CHANNEL_ID", None)
-# Plugin İçin
 if not PLUGINID:
     PLUGIN_CHANNEL_ID = "me"
 else:
     PLUGIN_CHANNEL_ID = int(PLUGINID)
 
-# Anti Spambot
 ANTI_SPAMBOT = sb(os.environ.get("ANTI_SPAMBOT", "False"))
 ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 
-# Temiz Karşılama
 CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
 
-# Last.fm Modülü
 BIO_PREFIX = os.environ.get("BIO_PREFIX", "@AsenaUserBot | ")
 DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
-DB_URI = os.environ.get("DATABASE_URL", "sqlite:///asena.db")
+DB_URI = os.environ.get("DATABASE_URL", "sqlite:///secret.db")
 
-# Inline bot çalışması için
 BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
 BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
 
-# Genius modülünün çalışması için buradan değeri alın https://genius.com/developers her ikisi de aynı değerlere sahiptir
 GENIUS = os.environ.get("GENIUS", None)
 CMD_HELP = {}
 CMD_HELP_BOT = {}
 PM_AUTO_BAN_LIMIT = int(os.environ.get("PM_AUTO_BAN_LIMIT", 4))
 
-SPOTIFY_DC = os.environ.get("SPOTIFY_DC", None)
-SPOTIFY_KEY = os.environ.get("SPOTIFY_KEY", None)
-
-PAKET_ISMI = os.environ.get("PAKET_ISMI", "@AsenaUserBot Paketi")
-
-# Otomatik Katılma
 OTOMATIK_KATILMA = sb(os.environ.get("OTOMATIK_KATILMA", "True"))
 
-# Özel Pattern'ler
 PATTERNS = os.environ.get("PATTERNS", ".;!,")
 WHITELIST = get('https://gitlab.com/Quiec/asen/-/raw/master/whitelist.json').json()
-BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
-if not BLACKLIST_CHAT:
-    BLACKLIST_CHAT = [-1001357863496]
 
-# CloudMail.ru ve MEGA.nz ayarlama
 if not os.path.exists('bin'):
     os.mkdir('bin')
 
@@ -158,12 +122,9 @@ for binary, path in binaries.items():
     downloader.start()
     os.chmod(path, 0o755)
 
-# 'bot' değişkeni
 if STRING_SESSION:
-    # pylint: devre dışı=geçersiz ad
     bot = TelegramClient(StringSession(STRING_SESSION), API_KEY, API_HASH)
 else:
-    # pylint: devre dışı=geçersiz ad
     bot = TelegramClient("userbot", API_KEY, API_HASH)
 
 
@@ -373,7 +334,6 @@ Hesabınızı bota çevirə və ondan istifadə edə bilərsiniz. Unutmayın ki,
         quit(1)
 
 
-# Qlobal Dəyişənlər
 SON_GORULME = 0
 COUNT_MSG = 0
 USERS = {}
