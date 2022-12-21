@@ -1,8 +1,3 @@
-# Copyright (C) 2021-2022 CyberUserBot
-# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
-# Please read the GNU General Public License v3.0 in
-# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
-
 from userbot import PATTERNS, CMD_HELP, CMD_HELP_BOT
 
 class CmdHelp:
@@ -53,32 +48,32 @@ class CmdHelp:
         Sonuç getirir.
         """
 
-        result = f"**▶️ Fayl adı:** `{self.FILE}`\n"
+        result = f"**➡️Fayl adı:** `{self.FILE}`\n"
         if self.WARNING == '' and self.INFO == '':
-            result += f"**⬇️ Rəsmi:** {'✅' if self.IS_OFFICIAL else '❌'}\n\n"
+            result += f"**⚡Rəsmi:** {'✅' if self.IS_OFFICIAL else '❌'}\n\n"
         else:
-            result += f"**⬇️ Rəsmi:** {'✅' if self.IS_OFFICIAL else '❌'}\n"
+            result += f"**⚡Rəsmi:** {'✅' if self.IS_OFFICIAL else '❌'}\n"
             
             if self.INFO == '':
                 if self.WARNING != '':
-                    result += f"**⚠️ Xəbərdarlıq:** {self.WARNING}\n\n"
+                    result += f"**⚠️Xəbərdarlıq:** {self.WARNING}\n\n"
             else:
                 if self.WARNING != '':
-                    result += f"**⚠️ Xəbərdarlıq:** {self.WARNING}\n"
-                result += f"**📘 Məlumat:** {self.INFO}\n\n"
+                    result += f"**⚠️Xəbərdarlıq:** {self.WARNING}\n"
+                result += f"**📘Məlumat:** {self.INFO}\n\n"
                      
         for command in self.COMMANDS:
             command = self.COMMANDS[command]
             if command['params'] == None:
-                result += f"**🛠 Əmr:** `{PATTERNS[:1]}{command['command']}`\n"
+                result += f"**🛠Əmr:** `{PATTERNS[:1]}{command['command']}`\n"
             else:
-                result += f"**🛠 Əmr:** `{PATTERNS[:1]}{command['command']} {command['params']}`\n"
+                result += f"**🛠Əmr:** `{PATTERNS[:1]}{command['command']} {command['params']}`\n"
                 
             if command['example'] == None:
-                result += f"**✉ Açıqlama:** `{command['usage']}`\n\n"
+                result += f"**✉Açıqlama:** `{command['usage']}`\n\n"
             else:
-                result += f"**✉ Açıqlama:** `{command['usage']}`\n"
-                result += f"**⌨️ Nümunə:** `{PATTERNS[:1]}{command['example']}`\n\n"
+                result += f"**✉Açıqlama:** `{command['usage']}`\n"
+                result += f"**⌨️Nümunə:** `{PATTERNS[:1]}{command['example']}`\n\n"
         return result
 
     def add(self):
