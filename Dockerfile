@@ -1,7 +1,4 @@
-# Faster & Secure & Special Container #
-# Thanks to mkaraniya & zakaryan2004
-
-FROM fusuf/asenauserbot:latest
+FROM python:3.9
 COPY . /app
 WORKDIR /app
 RUN pip3 install -r requirements.txt
