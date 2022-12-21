@@ -1,11 +1,3 @@
-# Copyright (C) 2020 Yusuf Usta.
-#
-# Licensed under the GPL-3.0 License;
-# you may not use this file except in compliance with the License.
-#
-
-# Asena UserBot - Yusuf Usta
-
 from . import LANGUAGE, LOGS, bot, PLUGIN_CHANNEL_ID
 from json import loads, JSONDecodeError
 from os import path, remove
