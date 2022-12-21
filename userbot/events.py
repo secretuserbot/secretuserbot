@@ -53,7 +53,7 @@ def register(**args):
                 return
              
             if groups_only and not check.is_group:
-                await check.respond("`Bunun bir grup olduğunu sanmıyorum.`")
+                await check.respond("`Bura qrup deyil`")
                 return
 
             try:
