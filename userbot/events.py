@@ -1,14 +1,3 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
-# you may not use this file except in compliance with the License.
-#
-
-# Asena UserBot - Yusuf Usta
-
-""" Olayları yönetmek için UserBot modülü.
- UserBot'un ana bileşenlerinden biri. """
-
 import sys
 from asyncio import create_subprocess_shell as asyncsubshell
 from asyncio import subprocess as asyncsub
@@ -22,7 +11,7 @@ from userbot import bot, BOTLOG_CHATID, LOGSPAMMER, PATTERNS
 
 
 def register(**args):
-    """ Yeni bir etkinlik kaydedin. """
+    """ Yeni tədbiri qeydiyyatdan keçirin. """
     pattern = args.get('pattern', None)
     disable_edited = args.get('disable_edited', False)
     groups_only = args.get('groups_only', False)
@@ -120,8 +109,8 @@ def register(**args):
                     file.close()
 
                     if LOGSPAMMER:
-                        await check.client.respond("`Üzgünüm, UserBot'um çöktü.\
-                        \nHata günlükleri UserBot günlük grubunda saklanır.`")
+                        await check.client.respond("`Bağışlayın, mənim UserBot qəzaya uğradı.\
+                        \nSəhv qeydləri UserBot log qrupunda saxlanılır.`")
 
                     await check.client.send_file(send_to,
                                                  "secret.log",
