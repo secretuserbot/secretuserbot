@@ -1,8 +1,3 @@
-# Eken bize ata desin
-# Ne baxirsan?
-# Oğurlamaq = övladımız olmaq
-# Copying is the cause of swearing
-
 import os, random, asyncio
 from userbot.events import register
 from userbot import CMD_HELP, bot, SUP
