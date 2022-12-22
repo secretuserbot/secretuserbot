@@ -115,7 +115,7 @@ try:
     PLUGIN_MESAJLAR = {}
     ORJ_PLUGIN_MESAJLAR = {"alive": "`👑Secret Userbot İşləyir...`", "afk": f"`{str(choice(AFKSTR))}`", "kickme": "`👋Özünüzə yaxşı baxın mən çıxdım`", "pm": UNAPPROVED_MSG, "ban": "❌ {mention}`, Qadağan edildi!`", "mute": "🔇 {mention}`, Səssizə alındı!`", "approve": "🔓 {mention}`, Mənə mesaj göndərə bilərsən!`", "disapprove": "🔒 {mention}`, Daha mənə mesaj göndərə bilməzsən!`", "block": "🔒{mention}`, Bloklandın!`", "tagsleep": "3"}
 
-    PLUGIN_MESAJLAR_TURLER = ["alive", "afk", "kickme", "pm", "ban", "mute", "approve", "disapprove", "block"]
+    PLUGIN_MESAJLAR_TURLER = ["alive", "afk", "kickme", "pm", "ban", "mute", "approve", "disapprove", "block", "tagsleep"]
     for mesaj in PLUGIN_MESAJLAR_TURLER:
         dmsj = MSJ_SQL.getir_mesaj(mesaj)
         if dmsj == False:
