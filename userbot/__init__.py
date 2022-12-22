@@ -15,7 +15,6 @@ from math import ceil
 
 load_dotenv("config.env")
 
-# Bot günlükleri kurulumu:
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 
 ASYNC_POOL = []
@@ -99,7 +98,7 @@ GENIUS = os.environ.get("GENIUS", None)
 CMD_HELP = {}
 CMD_HELP_BOT = {}
 PM_AUTO_BAN_LIMIT = int(os.environ.get("PM_AUTO_BAN_LIMIT", 4))
-SUP = [-1001197418406]
+SUP = [-1001768333933]
 BRAIN_CHECKER = []
 
 OTOMATIK_KATILMA = sb(os.environ.get("OTOMATIK_KATILMA", "True"))
